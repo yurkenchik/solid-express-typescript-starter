@@ -1,8 +1,6 @@
 import { SingletonImplementation } from "../../common/SingletonImplementation";
 
 export class Logger extends SingletonImplementation<Logger> {
-    private static instance: Logger;
-
     private constructor() {
         super();
     }

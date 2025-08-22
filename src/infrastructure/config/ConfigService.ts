@@ -1,17 +1,10 @@
 import dotenv from "dotenv";
+import { SingletonImplementation } from "../../common/SingletonImplementation";
 
-export class ConfigService {
-    private static instance: ConfigService;
-
+export class ConfigService extends SingletonImplementation<ConfigService> {
     private constructor() {
+        super();
         dotenv.config();
-    }
-
-    public static getInstance(): ConfigService {
-        if (!this.instance) {
-            this.instance = new ConfigService();
-        }
-        return this.instance;
     }
 
     getPort(): number {
