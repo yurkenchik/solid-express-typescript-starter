@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
-import { SingletonImplementation } from "../../common/SingletonImplementation";
+import { SingletonImplementation } from "@common/SingletonImplementation";
 
 export class ConfigService extends SingletonImplementation<ConfigService> {
-    private constructor() {
+     constructor() {
         super();
         dotenv.config();
     }
