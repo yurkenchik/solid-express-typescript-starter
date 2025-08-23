@@ -1,10 +1,10 @@
 import express, { Request, Response } from 'express';
-import { UserController } from "./UserController";
+import { UserController } from "../controllers/UserController";
 
 const userRouter = express.Router();
 const userController = UserController.getInstance();
 
-userRouter.post('', async (request: Request, response: Response): Promise<Response> => {
+userRouter.post('/', async (request: Request, response: Response): Promise<Response> => {
     return userController.createUser(request, response);
 });
 

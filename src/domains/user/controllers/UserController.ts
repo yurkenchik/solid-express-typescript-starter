@@ -1,14 +1,15 @@
 import { Request, Response } from "express";
-import { UserService } from "./UserService";
-import { CreateUserDto } from "./dto/request/CreateUserDto";
-import { normalizeToHttpException } from "../../utils/errorNormalizer";
-import { SingletonImplementation } from "../../common/SingletonImplementation";
+import { UserService } from "../services/UserService";
+import { CreateUserDto } from "../dto/request/CreateUserDto";
+import { normalizeToHttpException } from "@common/helpers/errorNormalizer";
+import { SingletonImplementation } from "@common/SingletonImplementation";
 
 export class UserController extends SingletonImplementation<UserController> {
-    private readonly userService: UserService = UserService.getInstance();
+    private readonly userService: UserService;
 
     constructor() {
         super();
+        this.userService = UserService.getInstance();
     }
 
     async createUser(request: Request, response: Response): Promise<Response> {

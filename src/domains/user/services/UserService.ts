@@ -1,7 +1,7 @@
-import { SingletonImplementation } from "../../common/SingletonImplementation";
-import { User, UserDocument } from "./User";
-import { CreateUserDto } from "./dto/request/CreateUserDto";
-import { NotFoundException } from "../../common/expections/NotFoundException";
+import { SingletonImplementation } from "@common/SingletonImplementation";
+import { User, UserDocument } from "../entites/User";
+import { CreateUserDto } from "../dto/request/CreateUserDto";
+import { NotFoundException } from "@common/expections/NotFoundException";
 
 export class UserService extends SingletonImplementation<UserDocument> {
     constructor() {
