@@ -5,10 +5,10 @@ import userRouter from "@domains/user/routers/UserRouter";
 export function createExpressApplication(): Express {
     const app: Express = express();
 
+    app.use(requestLoggerMiddleware);
     app.use(express.json({ limit: '1mb' }));
-    app.use(requestLoggerMiddleware)
 
-    app.use('api/users', userRouter);
+    app.use('/api/users', userRouter);
 
     return app;
 }
