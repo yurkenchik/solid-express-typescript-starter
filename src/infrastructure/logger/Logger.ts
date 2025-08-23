@@ -1,7 +1,7 @@
-import { SingletonImplementation } from "../../common/SingletonImplementation";
+import { SingletonImplementation } from "@common/SingletonImplementation";
 
 export class Logger extends SingletonImplementation<Logger> {
-    private constructor() {
+    constructor() {
         super();
     }
 
@@ -19,5 +19,17 @@ export class Logger extends SingletonImplementation<Logger> {
 
     error(message: string, extra?: unknown): void {
         console.error(this.colorize('31', `[ERROR] ${message}`), extra ?? '');
+    }
+
+    request(message: string, extra?: unknown): void {
+        console.log(this.colorize('34', `[REQUEST] ${message}`), extra ?? '');
+    }
+
+    response(message: string, extra?: unknown): void {
+        console.log(this.colorize('35', `[RESPONSE] ${message}`), extra ?? '');
+    }
+
+    serverStart(message: string, extra?: unknown): void {
+        console.log(this.colorize('1;39;41', `[SERVER] ${message}`), extra ?? '');
     }
 }
