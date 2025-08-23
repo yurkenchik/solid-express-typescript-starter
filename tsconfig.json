@@ -2,15 +2,23 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "NodeNext",
+    "module": "commonjs",
     "target": "ESNext",
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "node",
     "skipLibCheck": true,
     "sourceMap": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@domains/*": ["domains/*"],
+      "@infrastructure/*": ["infrastructure/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
